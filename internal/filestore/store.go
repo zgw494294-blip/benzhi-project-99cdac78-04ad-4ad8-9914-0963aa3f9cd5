@@ -327,24 +327,169 @@ func cloneCase(c *domain.ReleaseCase) (*domain.ReleaseCase, error) {
 		return nil, nil
 	}
 	copy := *c
-	copy.Participants = append([]domain.Participant(nil), c.Participants...)
-	copy.Recordings = append([]domain.RecordingItem(nil), c.Recordings...)
-	copy.Consents = append([]domain.ConsentGrant(nil), c.Consents...)
-	copy.Findings = append([]domain.ReviewFinding(nil), c.Findings...)
-	copy.EvidencePackages = append([]domain.EvidencePackage(nil), c.EvidencePackages...)
+	copy.Participants = cloneParticipants(c.Participants)
+	copy.Recordings = cloneRecordings(c.Recordings)
+	copy.Consents = cloneConsents(c.Consents)
+	copy.Findings = cloneFindings(c.Findings)
+	copy.EvidencePackages = cloneEvidencePackages(c.EvidencePackages)
 	if c.Decision != nil {
 		decision := *c.Decision
 		copy.Decision = &decision
 	}
 	if c.Manifest != nil {
-		manifest := *c.Manifest
-		copy.Manifest = &manifest
+		copy.Manifest = cloneManifest(c.Manifest)
 	}
 	if c.Credential != nil {
 		credential := *c.Credential
 		copy.Credential = &credential
 	}
 	return &copy, nil
+}
+
+func cloneParticipants(items []domain.Participant) []domain.Participant {
+	if len(items) == 0 {
+		return nil
+	}
+	out := make([]domain.Participant, len(items))
+	copy(out, items)
+	return out
+}
+
+func cloneRecordings(items []domain.RecordingItem) []domain.RecordingItem {
+	if len(items) == 0 {
+		return nil
+	}
+	out := make([]domain.RecordingItem, len(items))
+	for i, r := range items {
+		r.ParticipantIDs = cloneStrings(r.ParticipantIDs)
+		r.LanguageTags = cloneStrings(r.LanguageTags)
+		r.SensitiveTopics = cloneStrings(r.SensitiveTopics)
+		r.Revisions = cloneRevisions(r.Revisions)
+		out[i] = r
+	}
+	return out
+}
+
+func cloneRevisions(items []domain.RecordingRevision) []domain.RecordingRevision {
+	if len(items) == 0 {
+		return nil
+	}
+	out := make([]domain.RecordingRevision, len(items))
+	copy(out, items)
+	return out
+}
+
+func cloneConsents(items []domain.ConsentGrant) []domain.ConsentGrant {
+	if len(items) == 0 {
+		return nil
+	}
+	out := make([]domain.ConsentGrant, len(items))
+	for i, g := range items {
+		g.RecordingIDs = cloneStrings(g.RecordingIDs)
+		g.AllowedPurposes = cloneStrings(g.AllowedPurposes)
+		g.Audience = cloneStrings(g.Audience)
+		g.SensitiveTopics = cloneStrings(g.SensitiveTopics)
+		g.ExpiresAt = cloneTimePtr(g.ExpiresAt)
+		g.WithdrawnAt = cloneTimePtr(g.WithdrawnAt)
+		out[i] = g
+	}
+	return out
+}
+
+func cloneFindings(items []domain.ReviewFinding) []domain.ReviewFinding {
+	if len(items) == 0 {
+		return nil
+	}
+	out := make([]domain.ReviewFinding, len(items))
+	for i, f := range items {
+		f.ReviewedAt = cloneTimePtr(f.ReviewedAt)
+		out[i] = f
+	}
+	return out
+}
+
+func cloneEvidencePackages(items []domain.EvidencePackage) []domain.EvidencePackage {
+	if len(items) == 0 {
+		return nil
+	}
+	out := make([]domain.EvidencePackage, len(items))
+	for i, pkg := range items {
+		pkg.FindingIDs = cloneStrings(pkg.FindingIDs)
+		pkg.ConsentIDs = cloneStrings(pkg.ConsentIDs)
+		pkg.RevisionIDs = cloneStrings(pkg.RevisionIDs)
+		pkg.MaterialSummaries = append([]domain.EvidenceSummary(nil), pkg.MaterialSummaries...)
+		pkg.RevisionSummaries = append([]domain.EvidenceSummary(nil), pkg.RevisionSummaries...)
+		out[i] = pkg
+	}
+	return out
+}
+
+func cloneManifest(m *domain.ReleaseManifest) *domain.ReleaseManifest {
+	if m == nil {
+		return nil
+	}
+	out := *m
+	out.Recordings = cloneManifestRecordings(m.Recordings)
+	out.Consents = cloneManifestConsents(m.Consents)
+	out.AccessScopes = cloneAccessScopes(m.AccessScopes)
+	return &out
+}
+
+func cloneManifestRecordings(items []domain.ManifestRecording) []domain.ManifestRecording {
+	if len(items) == 0 {
+		return nil
+	}
+	out := make([]domain.ManifestRecording, len(items))
+	for i, r := range items {
+		r.ParticipantIDs = cloneStrings(r.ParticipantIDs)
+		out[i] = r
+	}
+	return out
+}
+
+func cloneManifestConsents(items []domain.ManifestConsent) []domain.ManifestConsent {
+	if len(items) == 0 {
+		return nil
+	}
+	out := make([]domain.ManifestConsent, len(items))
+	for i, c := range items {
+		c.RecordingIDs = cloneStrings(c.RecordingIDs)
+		out[i] = c
+	}
+	return out
+}
+
+func cloneAccessScopes(items []domain.AccessScope) []domain.AccessScope {
+	if len(items) == 0 {
+		return nil
+	}
+	out := make([]domain.AccessScope, len(items))
+	for i, s := range items {
+		s.AllowedPurposes = cloneStrings(s.AllowedPurposes)
+		s.Audience = cloneStrings(s.Audience)
+		s.SensitiveTopics = cloneStrings(s.SensitiveTopics)
+		s.Reasons = cloneStrings(s.Reasons)
+		s.ExpiresAt = cloneTimePtr(s.ExpiresAt)
+		out[i] = s
+	}
+	return out
+}
+
+func cloneStrings(items []string) []string {
+	if len(items) == 0 {
+		return nil
+	}
+	out := make([]string, len(items))
+	copy(out, items)
+	return out
+}
+
+func cloneTimePtr(t *time.Time) *time.Time {
+	if t == nil {
+		return nil
+	}
+	value := *t
+	return &value
 }
 func safeName(value string) string {
 	return strings.Map(func(r rune) rune {
