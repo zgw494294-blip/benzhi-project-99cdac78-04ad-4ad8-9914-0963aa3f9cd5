@@ -59,16 +59,18 @@ func (m *Manager) Append(ctx context.Context, event application.AuditEvent) erro
 	}
 	m.mu.Lock()
 	defer m.mu.Unlock()
-	event.Sequence = m.state.NextEvent
-	if len(m.state.Events) > 0 {
-		event.PreviousDigest = m.state.Events[len(m.state.Events)-1].Digest
+	next := cloneState(m.state)
+	event.Sequence = next.NextEvent
+	if len(next.Events) > 0 {
+		event.PreviousDigest = next.Events[len(next.Events)-1].Digest
 	}
 	event.Digest = auditDigest(event)
-	m.state.Events = append(m.state.Events, event)
-	m.state.NextEvent++
-	if err := m.persist(m.state); err != nil {
+	next.Events = append(next.Events, event)
+	next.NextEvent++
+	if err := m.persist(next); err != nil {
 		return err
 	}
+	m.state = next
 	return nil
 }
 
