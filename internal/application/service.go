@@ -35,6 +35,20 @@ func NewService(repo Repository, audit AuditPort) *Service {
 	}
 }
 
+// invalidateComplianceCache drops all cached compliance reports for the given
+// case. ComplianceAt keys its cache by caseID + evaluateAt + warningDays but
+// intentionally omits the case version: without invalidation, mutations that
+// bump the version would replay the stale pre-mutation snapshot forever.
+func (s *Service) invalidateComplianceCache(caseID string) {
+	s.complianceMu.Lock()
+	defer s.complianceMu.Unlock()
+	for key := range s.complianceCache {
+		if key.caseID == caseID {
+			delete(s.complianceCache, key)
+		}
+	}
+}
+
 func (s *Service) CreateCase(ctx context.Context, cmd CreateCase) (*domain.ReleaseCase, error) {
 	if err := requireRole(cmd.ActorID, cmd.ActorRole, RoleCataloger); err != nil {
 		return nil, err
@@ -61,6 +75,7 @@ func (s *Service) CreateCase(ctx context.Context, cmd CreateCase) (*domain.Relea
 	if err := s.repo.Save(ctx, c, 0, record); err != nil {
 		return nil, err
 	}
+	s.invalidateComplianceCache(c.ID)
 	if err := s.audit.Append(ctx, s.event(c, cmd.ActorID, cmd.ActorRole, "CASE_CREATED", "开放案件已创建", now)); err != nil {
 		return nil, fmt.Errorf("写入审计事件: %w", err)
 	}
@@ -291,6 +306,7 @@ func (s *Service) Issue(ctx context.Context, caseID string, cmd IssueCredential)
 	if err := s.repo.Save(ctx, c, cmd.ExpectedVersion, record); err != nil {
 		return nil, err
 	}
+	s.invalidateComplianceCache(c.ID)
 	if err := s.audit.Append(ctx, s.event(c, cmd.ActorID, cmd.ActorRole, "CREDENTIAL_ISSUED", credential.CredentialNo, now)); err != nil {
 		return nil, err
 	}
@@ -366,6 +382,7 @@ func (s *Service) mutateWithDetails(ctx context.Context, caseID string, meta Met
 	if err := s.repo.Save(ctx, c, meta.ExpectedVersion, record); err != nil {
 		return nil, err
 	}
+	s.invalidateComplianceCache(c.ID)
 	if err := s.audit.Append(ctx, s.event(c, meta.ActorID, meta.ActorRole, action, details(), now)); err != nil {
 		return nil, err
 	}

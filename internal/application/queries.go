@@ -27,7 +27,8 @@ func (s *Service) Compliance(ctx context.Context, caseID string) (domain.Complia
 
 func (s *Service) ComplianceAt(ctx context.Context, caseID string, query ComplianceQuery) (domain.ComplianceReport, error) {
 	// 带显式时间的历史评估可重复使用，避免反复计算较大的授权关系集合。
-	// 缓存键刻意不包含案件版本，案件后续修改时会错误复用旧快照的结果。
+	// 缓存键不含案件版本，但在案件发生写入时通过 invalidateComplianceCache
+	// 清除该案件全部缓存条目，确保后续修改不会复用旧快照的结果。
 	cacheable := !query.EvaluateAt.IsZero()
 	key := complianceCacheKey{caseID: caseID, evaluatedAt: query.EvaluateAt.UTC(), warningDays: query.WarningDays}
 	if cacheable {
