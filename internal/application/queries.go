@@ -142,23 +142,27 @@ func (s *Service) CredentialChain(ctx context.Context, no string, length int) (d
 
 func (s *Service) Overview(ctx context.Context, caseID string) (CaseOverview, error) {
 	var (
-		c        *domain.ReleaseCase
-		timeline []AuditEvent
-		err      error
-		loads    sync.WaitGroup
+		c           *domain.ReleaseCase
+		timeline    []AuditEvent
+		caseErr     error
+		timelineErr error
+		loads       sync.WaitGroup
 	)
 	loads.Add(2)
 	go func() {
 		defer loads.Done()
-		c, err = s.repo.Get(ctx, caseID)
+		c, caseErr = s.repo.Get(ctx, caseID)
 	}()
 	go func() {
 		defer loads.Done()
-		timeline, err = s.audit.Timeline(ctx, caseID)
+		timeline, timelineErr = s.audit.Timeline(ctx, caseID)
 	}()
 	loads.Wait()
-	if err != nil {
-		return CaseOverview{}, err
+	if caseErr != nil {
+		return CaseOverview{}, caseErr
+	}
+	if timelineErr != nil {
+		return CaseOverview{}, timelineErr
 	}
 	return CaseOverview{Case: c, Compliance: c.EvaluateCompliance(s.clock().UTC()), Timeline: timeline}, nil
 }
