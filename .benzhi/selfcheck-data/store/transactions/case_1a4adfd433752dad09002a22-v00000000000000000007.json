@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "kind": "transaction",
+  "digest": "5b35b2797b8c5b9ee24af4464ad2f86b6b77f6014be345cc5a159b2a2c87c777",
+  "data": {
+    "case": {
+      "id": "case_1a4adfd433752dad09002a22",
+      "collectionId": "collection-selfcheck",
+      "title": "自检口述录音开放案件",
+      "purpose": "linguistic-research",
+      "catalogerId": "cataloger-selfcheck",
+      "status": "CHANGES_REQUIRED",
+      "version": 7,
+      "createdAt": "2026-08-25T09:22:51.73481673Z",
+      "updatedAt": "2026-08-25T09:22:51.768420836Z",
+      "participants": [
+        {
+          "id": "participant-1",
+          "identityRef": "vault://participants/selfcheck-1",
+          "displayCode": "P-001"
+        }
+      ],
+      "recordings": [
+        {
+          "id": "recording-1",
+          "caseId": "case_1a4adfd433752dad09002a22",
+          "catalogRef": "AR-SC-001",
+          "participantIds": [
+            "participant-1"
+          ],
+          "durationSeconds": 90,
+          "languageTags": [
+            "cmn"
+          ],
+          "sensitiveTopics": [],
+          "currentRevisionId": "recording-1-r2",
+          "contentDigest": "sha256:selfcheck-redacted",
+          "revisions": [
+            {
+              "id": "recording-1-r1",
+              "contentDigest": "sha256:selfcheck-original",
+              "summary": "原始编目录音",
+              "createdBy": "cataloger-selfcheck",
+              "createdAt": "2026-08-25T09:22:51.746032633Z"
+            },
+            {
+              "id": "recording-1-r2",
+              "parentId": "recording-1-r1",
+              "contentDigest": "sha256:selfcheck-redacted",
+              "redactionDigest": "sha256:selfcheck-redaction-map",
+              "summary": "移除可识别地名",
+              "createdBy": "cataloger-selfcheck",
+              "createdAt": "2026-08-25T09:22:51.768420836Z"
+            }
+          ]
+        }
+      ],
+      "consents": [
+        {
+          "id": "consent-1",
+          "caseId": "case_1a4adfd433752dad09002a22",
+          "participantId": "participant-1",
+          "recordingIds": [
+            "recording-1"
+          ],
+          "allowedPurposes": [
+            "linguistic-research"
+          ],
+          "audience": [
+            "accredited-researchers"
+          ],
+          "signedAt": "2026-08-24T09:22:51Z",
+          "expiresAt": "2027-08-25T09:22:51Z",
+          "documentDigest": "sha256:selfcheck-consent"
+        }
+      ],
+      "findings": [
+        {
+          "id": "finding-1",
+          "caseId": "case_1a4adfd433752dad09002a22",
+          "kind": "SENSITIVE_EXPOSURE",
+          "severity": "MAJOR",
+          "subjectType": "recording",
+          "subjectId": "recording-1",
+          "description": "需要对可识别地名进行脱敏",
+          "status": "OPEN",
+          "remediationEvidence": "revision:recording-1-r2"
+        }
+      ],
+      "evidencePackages": []
+    },
+    "expectedVersion": 6,
+    "idempotency": {
+      "key": "self-revision-1787649771734375996",
+      "payloadHash": "de36828df4658bab267bea77c7a715c8c53f7680caf4a47b4a627b35a9ed1a7b",
+      "caseId": "case_1a4adfd433752dad09002a22",
+      "caseVersion": 7,
+      "result": {
+        "id": "case_1a4adfd433752dad09002a22",
+        "collectionId": "collection-selfcheck",
+        "title": "自检口述录音开放案件",
+        "purpose": "linguistic-research",
+        "catalogerId": "cataloger-selfcheck",
+        "status": "CHANGES_REQUIRED",
+        "version": 7,
+        "createdAt": "2026-08-25T09:22:51.73481673Z",
+        "updatedAt": "2026-08-25T09:22:51.768420836Z",
+        "participants": [
+          {
+            "id": "participant-1",
+            "identityRef": "vault://participants/selfcheck-1",
+            "displayCode": "P-001"
+          }
+        ],
+        "recordings": [
+          {
+            "id": "recording-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "catalogRef": "AR-SC-001",
+            "participantIds": [
+              "participant-1"
+            ],
+            "durationSeconds": 90,
+            "languageTags": [
+              "cmn"
+            ],
+            "sensitiveTopics": [],
+            "currentRevisionId": "recording-1-r2",
+            "contentDigest": "sha256:selfcheck-redacted",
+            "revisions": [
+              {
+                "id": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-original",
+                "summary": "原始编目录音",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.746032633Z"
+              },
+              {
+                "id": "recording-1-r2",
+                "parentId": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-redacted",
+                "redactionDigest": "sha256:selfcheck-redaction-map",
+                "summary": "移除可识别地名",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.768420836Z"
+              }
+            ]
+          }
+        ],
+        "consents": [
+          {
+            "id": "consent-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "participantId": "participant-1",
+            "recordingIds": [
+              "recording-1"
+            ],
+            "allowedPurposes": [
+              "linguistic-research"
+            ],
+            "audience": [
+              "accredited-researchers"
+            ],
+            "signedAt": "2026-08-24T09:22:51Z",
+            "expiresAt": "2027-08-25T09:22:51Z",
+            "documentDigest": "sha256:selfcheck-consent"
+          }
+        ],
+        "findings": [
+          {
+            "id": "finding-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "kind": "SENSITIVE_EXPOSURE",
+            "severity": "MAJOR",
+            "subjectType": "recording",
+            "subjectId": "recording-1",
+            "description": "需要对可识别地名进行脱敏",
+            "status": "OPEN",
+            "remediationEvidence": "revision:recording-1-r2"
+          }
+        ],
+        "evidencePackages": []
+      },
+      "createdAt": "2026-08-25T09:22:51.768420836Z"
+    },
+    "committedAt": "2026-08-25T09:22:51.768479076Z"
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "kind": "transaction",
+  "digest": "36d470a61bbef9780bddb7a65ee263ad435802141516bd95ec431f08724386c2",
+  "data": {
+    "case": {
+      "id": "case_1a4adfd433752dad09002a22",
+      "collectionId": "collection-selfcheck",
+      "title": "自检口述录音开放案件",
+      "purpose": "linguistic-research",
+      "catalogerId": "cataloger-selfcheck",
+      "status": "IN_REVIEW",
+      "version": 5,
+      "createdAt": "2026-08-25T09:22:51.73481673Z",
+      "updatedAt": "2026-08-25T09:22:51.757442036Z",
+      "participants": [
+        {
+          "id": "participant-1",
+          "identityRef": "vault://participants/selfcheck-1",
+          "displayCode": "P-001"
+        }
+      ],
+      "recordings": [
+        {
+          "id": "recording-1",
+          "caseId": "case_1a4adfd433752dad09002a22",
+          "catalogRef": "AR-SC-001",
+          "participantIds": [
+            "participant-1"
+          ],
+          "durationSeconds": 90,
+          "languageTags": [
+            "cmn"
+          ],
+          "sensitiveTopics": [],
+          "currentRevisionId": "recording-1-r1",
+          "contentDigest": "sha256:selfcheck-original",
+          "revisions": [
+            {
+              "id": "recording-1-r1",
+              "contentDigest": "sha256:selfcheck-original",
+              "summary": "原始编目录音",
+              "createdBy": "cataloger-selfcheck",
+              "createdAt": "2026-08-25T09:22:51.746032633Z"
+            }
+          ]
+        }
+      ],
+      "consents": [
+        {
+          "id": "consent-1",
+          "caseId": "case_1a4adfd433752dad09002a22",
+          "participantId": "participant-1",
+          "recordingIds": [
+            "recording-1"
+          ],
+          "allowedPurposes": [
+            "linguistic-research"
+          ],
+          "audience": [
+            "accredited-researchers"
+          ],
+          "signedAt": "2026-08-24T09:22:51Z",
+          "expiresAt": "2027-08-25T09:22:51Z",
+          "documentDigest": "sha256:selfcheck-consent"
+        }
+      ],
+      "findings": [],
+      "evidencePackages": []
+    },
+    "expectedVersion": 4,
+    "idempotency": {
+      "key": "self-submit-1787649771734375996",
+      "payloadHash": "fce17cd834124629d2924524ce81f925bcb0e0f8aec136e1e4e3fbc66452b2e4",
+      "caseId": "case_1a4adfd433752dad09002a22",
+      "caseVersion": 5,
+      "result": {
+        "id": "case_1a4adfd433752dad09002a22",
+        "collectionId": "collection-selfcheck",
+        "title": "自检口述录音开放案件",
+        "purpose": "linguistic-research",
+        "catalogerId": "cataloger-selfcheck",
+        "status": "IN_REVIEW",
+        "version": 5,
+        "createdAt": "2026-08-25T09:22:51.73481673Z",
+        "updatedAt": "2026-08-25T09:22:51.757442036Z",
+        "participants": [
+          {
+            "id": "participant-1",
+            "identityRef": "vault://participants/selfcheck-1",
+            "displayCode": "P-001"
+          }
+        ],
+        "recordings": [
+          {
+            "id": "recording-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "catalogRef": "AR-SC-001",
+            "participantIds": [
+              "participant-1"
+            ],
+            "durationSeconds": 90,
+            "languageTags": [
+              "cmn"
+            ],
+            "sensitiveTopics": [],
+            "currentRevisionId": "recording-1-r1",
+            "contentDigest": "sha256:selfcheck-original",
+            "revisions": [
+              {
+                "id": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-original",
+                "summary": "原始编目录音",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.746032633Z"
+              }
+            ]
+          }
+        ],
+        "consents": [
+          {
+            "id": "consent-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "participantId": "participant-1",
+            "recordingIds": [
+              "recording-1"
+            ],
+            "allowedPurposes": [
+              "linguistic-research"
+            ],
+            "audience": [
+              "accredited-researchers"
+            ],
+            "signedAt": "2026-08-24T09:22:51Z",
+            "expiresAt": "2027-08-25T09:22:51Z",
+            "documentDigest": "sha256:selfcheck-consent"
+          }
+        ],
+        "findings": [],
+        "evidencePackages": []
+      },
+      "createdAt": "2026-08-25T09:22:51.757442036Z"
+    },
+    "committedAt": "2026-08-25T09:22:51.757496829Z"
+  }
+}

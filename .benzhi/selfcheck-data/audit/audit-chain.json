@@ -1,0 +1,148 @@
+{
+  "digest": "0d339b1229f840e022745e1261dbb8617aeb740939cd5d505b4a51323a6670b7",
+  "data": {
+    "schemaVersion": 1,
+    "events": [
+      {
+        "sequence": 1,
+        "caseId": "case_1a4adfd433752dad09002a22",
+        "actorId": "cataloger-selfcheck",
+        "actorRole": "CATALOGER",
+        "objectVersion": 1,
+        "action": "CASE_CREATED",
+        "at": "2026-08-25T09:22:51.73481673Z",
+        "details": "开放案件已创建",
+        "previousDigest": "",
+        "digest": "61fd25af055cd2e62491a64c8da296ddc2b75495e5c10bcabfb2a6731c18f885"
+      },
+      {
+        "sequence": 2,
+        "caseId": "case_1a4adfd433752dad09002a22",
+        "actorId": "cataloger-selfcheck",
+        "actorRole": "CATALOGER",
+        "objectVersion": 2,
+        "action": "PARTICIPANT_ADDED",
+        "at": "2026-08-25T09:22:51.740685812Z",
+        "previousDigest": "61fd25af055cd2e62491a64c8da296ddc2b75495e5c10bcabfb2a6731c18f885",
+        "digest": "eaa324f3f8a03d3ce399f29ddb8e6b9e7d9b81a9153293162d61b96cf31337ae"
+      },
+      {
+        "sequence": 3,
+        "caseId": "case_1a4adfd433752dad09002a22",
+        "actorId": "cataloger-selfcheck",
+        "actorRole": "CATALOGER",
+        "objectVersion": 3,
+        "action": "RECORDING_ADDED",
+        "at": "2026-08-25T09:22:51.746032633Z",
+        "previousDigest": "eaa324f3f8a03d3ce399f29ddb8e6b9e7d9b81a9153293162d61b96cf31337ae",
+        "digest": "5dcf60c8c3a1fb4dfa3a1ef126fbdf19f0388ab0aa04ac15def8a12ec892ae19"
+      },
+      {
+        "sequence": 4,
+        "caseId": "case_1a4adfd433752dad09002a22",
+        "actorId": "cataloger-selfcheck",
+        "actorRole": "CATALOGER",
+        "objectVersion": 4,
+        "action": "CONSENT_ADDED",
+        "at": "2026-08-25T09:22:51.751865401Z",
+        "previousDigest": "5dcf60c8c3a1fb4dfa3a1ef126fbdf19f0388ab0aa04ac15def8a12ec892ae19",
+        "digest": "f9cfb0ce988b02fc21a3dd7ce0b8be8dcb0f8f3ceb294d09f8ba42bdc3226cf6"
+      },
+      {
+        "sequence": 5,
+        "caseId": "case_1a4adfd433752dad09002a22",
+        "actorId": "cataloger-selfcheck",
+        "actorRole": "CATALOGER",
+        "objectVersion": 5,
+        "action": "REVIEW_SUBMITTED",
+        "at": "2026-08-25T09:22:51.757442036Z",
+        "previousDigest": "f9cfb0ce988b02fc21a3dd7ce0b8be8dcb0f8f3ceb294d09f8ba42bdc3226cf6",
+        "digest": "d645230b38143d3b991c0c525ed2f165e7f6483ddba8f2774acf9e55ff8aa52e"
+      },
+      {
+        "sequence": 6,
+        "caseId": "case_1a4adfd433752dad09002a22",
+        "actorId": "reviewer-selfcheck",
+        "actorRole": "REVIEWER",
+        "objectVersion": 6,
+        "action": "FINDING_RECORDED",
+        "at": "2026-08-25T09:22:51.763052008Z",
+        "previousDigest": "d645230b38143d3b991c0c525ed2f165e7f6483ddba8f2774acf9e55ff8aa52e",
+        "digest": "11d0a946f83bd44a95ae310ef773fac83b2c1546c2f93c91053728e99da1a7a8"
+      },
+      {
+        "sequence": 7,
+        "caseId": "case_1a4adfd433752dad09002a22",
+        "actorId": "cataloger-selfcheck",
+        "actorRole": "CATALOGER",
+        "objectVersion": 7,
+        "action": "REDACTED_REVISION_ADDED",
+        "at": "2026-08-25T09:22:51.768420836Z",
+        "previousDigest": "11d0a946f83bd44a95ae310ef773fac83b2c1546c2f93c91053728e99da1a7a8",
+        "digest": "377371cc546ffc4c5f25643db7f626108eb0c2e32b23b9c4bb9d3b9cf2f66148"
+      },
+      {
+        "sequence": 8,
+        "caseId": "case_1a4adfd433752dad09002a22",
+        "actorId": "reviewer-selfcheck",
+        "actorRole": "REVIEWER",
+        "objectVersion": 8,
+        "action": "FINDING_REVIEWED",
+        "at": "2026-08-25T09:22:51.774311931Z",
+        "previousDigest": "377371cc546ffc4c5f25643db7f626108eb0c2e32b23b9c4bb9d3b9cf2f66148",
+        "digest": "0d44960d2c987a87f475d64700e06ab917cae20a845f6439b3818e619d6187f4"
+      },
+      {
+        "sequence": 9,
+        "caseId": "case_1a4adfd433752dad09002a22",
+        "actorId": "officer-selfcheck",
+        "actorRole": "RELEASE_OFFICER",
+        "objectVersion": 9,
+        "action": "CASE_APPROVED",
+        "at": "2026-08-25T09:22:51.779998656Z",
+        "previousDigest": "0d44960d2c987a87f475d64700e06ab917cae20a845f6439b3818e619d6187f4",
+        "digest": "d9ff648b7e349e27b5c7ade96421e621aa339d6d56f9b28482d020bd5e26a60c"
+      },
+      {
+        "sequence": 10,
+        "caseId": "case_1a4adfd433752dad09002a22",
+        "actorId": "officer-selfcheck",
+        "actorRole": "RELEASE_OFFICER",
+        "objectVersion": 10,
+        "action": "MANIFEST_FROZEN",
+        "at": "2026-08-25T09:22:51.785952791Z",
+        "previousDigest": "d9ff648b7e349e27b5c7ade96421e621aa339d6d56f9b28482d020bd5e26a60c",
+        "digest": "6c38a429d20e5045f11fd98b16092b33ba6ab4627e5c845a7ba18d36db67e613"
+      },
+      {
+        "sequence": 11,
+        "caseId": "case_1a4adfd433752dad09002a22",
+        "actorId": "officer-selfcheck",
+        "actorRole": "RELEASE_OFFICER",
+        "objectVersion": 11,
+        "action": "CREDENTIAL_ISSUED",
+        "at": "2026-08-25T09:22:51.792373687Z",
+        "details": "OAR-0000000001",
+        "previousDigest": "6c38a429d20e5045f11fd98b16092b33ba6ab4627e5c845a7ba18d36db67e613",
+        "digest": "8470ef714c0250e7a7b83aad6ac8af5f88ffc485d749695d7c7851f933015f27"
+      }
+    ],
+    "credentials": {
+      "OAR-0000000001": {
+        "credentialNo": "OAR-0000000001",
+        "caseId": "case_1a4adfd433752dad09002a22",
+        "manifestDigest": "d137c69713f1d5ce831dd437a89b3f9d6f2762773a0f7116b25056e3336674f9",
+        "previousDigest": "",
+        "credentialDigest": "077cf7ba05f3ef71a7cc2195b1da6c5999169f4621038284cf6fac9fe6104c8b",
+        "sequence": 1,
+        "issuedBy": "officer-selfcheck",
+        "issuedAt": "2026-08-25T09:22:51.792373687Z"
+      }
+    },
+    "manifestIndex": {
+      "d137c69713f1d5ce831dd437a89b3f9d6f2762773a0f7116b25056e3336674f9": "OAR-0000000001"
+    },
+    "nextEvent": 12,
+    "nextCredential": 2
+  }
+}

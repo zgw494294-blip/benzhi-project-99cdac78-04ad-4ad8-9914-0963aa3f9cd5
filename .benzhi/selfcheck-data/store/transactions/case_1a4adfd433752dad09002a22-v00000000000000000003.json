@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "kind": "transaction",
+  "digest": "46ad27725f1347ff8038856e4c3318c60e2303581df3fd161720bca300a2c438",
+  "data": {
+    "case": {
+      "id": "case_1a4adfd433752dad09002a22",
+      "collectionId": "collection-selfcheck",
+      "title": "自检口述录音开放案件",
+      "purpose": "linguistic-research",
+      "catalogerId": "cataloger-selfcheck",
+      "status": "DRAFT",
+      "version": 3,
+      "createdAt": "2026-08-25T09:22:51.73481673Z",
+      "updatedAt": "2026-08-25T09:22:51.746032633Z",
+      "participants": [
+        {
+          "id": "participant-1",
+          "identityRef": "vault://participants/selfcheck-1",
+          "displayCode": "P-001"
+        }
+      ],
+      "recordings": [
+        {
+          "id": "recording-1",
+          "caseId": "case_1a4adfd433752dad09002a22",
+          "catalogRef": "AR-SC-001",
+          "participantIds": [
+            "participant-1"
+          ],
+          "durationSeconds": 90,
+          "languageTags": [
+            "cmn"
+          ],
+          "sensitiveTopics": [],
+          "currentRevisionId": "recording-1-r1",
+          "contentDigest": "sha256:selfcheck-original",
+          "revisions": [
+            {
+              "id": "recording-1-r1",
+              "contentDigest": "sha256:selfcheck-original",
+              "summary": "原始编目录音",
+              "createdBy": "cataloger-selfcheck",
+              "createdAt": "2026-08-25T09:22:51.746032633Z"
+            }
+          ]
+        }
+      ],
+      "consents": [],
+      "findings": [],
+      "evidencePackages": []
+    },
+    "expectedVersion": 2,
+    "idempotency": {
+      "key": "self-recording-1787649771734375996",
+      "payloadHash": "bc402158326828f2c79b145db018646dcb150e3b8dadc14b807420c67bf41308",
+      "caseId": "case_1a4adfd433752dad09002a22",
+      "caseVersion": 3,
+      "result": {
+        "id": "case_1a4adfd433752dad09002a22",
+        "collectionId": "collection-selfcheck",
+        "title": "自检口述录音开放案件",
+        "purpose": "linguistic-research",
+        "catalogerId": "cataloger-selfcheck",
+        "status": "DRAFT",
+        "version": 3,
+        "createdAt": "2026-08-25T09:22:51.73481673Z",
+        "updatedAt": "2026-08-25T09:22:51.746032633Z",
+        "participants": [
+          {
+            "id": "participant-1",
+            "identityRef": "vault://participants/selfcheck-1",
+            "displayCode": "P-001"
+          }
+        ],
+        "recordings": [
+          {
+            "id": "recording-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "catalogRef": "AR-SC-001",
+            "participantIds": [
+              "participant-1"
+            ],
+            "durationSeconds": 90,
+            "languageTags": [
+              "cmn"
+            ],
+            "sensitiveTopics": [],
+            "currentRevisionId": "recording-1-r1",
+            "contentDigest": "sha256:selfcheck-original",
+            "revisions": [
+              {
+                "id": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-original",
+                "summary": "原始编目录音",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.746032633Z"
+              }
+            ]
+          }
+        ],
+        "consents": [],
+        "findings": [],
+        "evidencePackages": []
+      },
+      "createdAt": "2026-08-25T09:22:51.746032633Z"
+    },
+    "committedAt": "2026-08-25T09:22:51.74606803Z"
+  }
+}

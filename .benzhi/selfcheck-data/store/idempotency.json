@@ -1,0 +1,935 @@
+{
+  "schemaVersion": 1,
+  "kind": "idempotency-index",
+  "digest": "05585fac43afb702c29f1f011a677b2513f2899b28045c95e953880d7cb34d6c",
+  "data": {
+    "self-approve-1787649771734375996": {
+      "key": "self-approve-1787649771734375996",
+      "payloadHash": "41a84e6c6ee83c199b6510ea0979dc8ee6f56e6eb9ffd770346776ec12bd2061",
+      "caseId": "case_1a4adfd433752dad09002a22",
+      "caseVersion": 9,
+      "result": {
+        "id": "case_1a4adfd433752dad09002a22",
+        "collectionId": "collection-selfcheck",
+        "title": "自检口述录音开放案件",
+        "purpose": "linguistic-research",
+        "catalogerId": "cataloger-selfcheck",
+        "status": "APPROVED",
+        "version": 9,
+        "createdAt": "2026-08-25T09:22:51.73481673Z",
+        "updatedAt": "2026-08-25T09:22:51.779998656Z",
+        "participants": [
+          {
+            "id": "participant-1",
+            "identityRef": "vault://participants/selfcheck-1",
+            "displayCode": "P-001"
+          }
+        ],
+        "recordings": [
+          {
+            "id": "recording-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "catalogRef": "AR-SC-001",
+            "participantIds": [
+              "participant-1"
+            ],
+            "durationSeconds": 90,
+            "languageTags": [
+              "cmn"
+            ],
+            "sensitiveTopics": [],
+            "currentRevisionId": "recording-1-r2",
+            "contentDigest": "sha256:selfcheck-redacted",
+            "revisions": [
+              {
+                "id": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-original",
+                "summary": "原始编目录音",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.746032633Z"
+              },
+              {
+                "id": "recording-1-r2",
+                "parentId": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-redacted",
+                "redactionDigest": "sha256:selfcheck-redaction-map",
+                "summary": "移除可识别地名",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.768420836Z"
+              }
+            ]
+          }
+        ],
+        "consents": [
+          {
+            "id": "consent-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "participantId": "participant-1",
+            "recordingIds": [
+              "recording-1"
+            ],
+            "allowedPurposes": [
+              "linguistic-research"
+            ],
+            "audience": [
+              "accredited-researchers"
+            ],
+            "signedAt": "2026-08-24T09:22:51Z",
+            "expiresAt": "2027-08-25T09:22:51Z",
+            "documentDigest": "sha256:selfcheck-consent"
+          }
+        ],
+        "findings": [
+          {
+            "id": "finding-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "kind": "SENSITIVE_EXPOSURE",
+            "severity": "MAJOR",
+            "subjectType": "recording",
+            "subjectId": "recording-1",
+            "description": "需要对可识别地名进行脱敏",
+            "status": "CLOSED",
+            "remediationEvidence": "revision:recording-1-r2",
+            "reviewedBy": "reviewer-selfcheck",
+            "reviewedAt": "2026-08-25T09:22:51.774311931Z"
+          }
+        ],
+        "evidencePackages": [],
+        "decision": {
+          "decision": "APPROVED",
+          "actorId": "officer-selfcheck",
+          "reason": "同意范围明确且整改已复核",
+          "at": "2026-08-25T09:22:51.779998656Z"
+        }
+      },
+      "createdAt": "2026-08-25T09:22:51.779998656Z"
+    },
+    "self-consent-1787649771734375996": {
+      "key": "self-consent-1787649771734375996",
+      "payloadHash": "87ab893e037d969b41c4daadf790c72bf271233c103e535458a0914c09f522ff",
+      "caseId": "case_1a4adfd433752dad09002a22",
+      "caseVersion": 4,
+      "result": {
+        "id": "case_1a4adfd433752dad09002a22",
+        "collectionId": "collection-selfcheck",
+        "title": "自检口述录音开放案件",
+        "purpose": "linguistic-research",
+        "catalogerId": "cataloger-selfcheck",
+        "status": "DRAFT",
+        "version": 4,
+        "createdAt": "2026-08-25T09:22:51.73481673Z",
+        "updatedAt": "2026-08-25T09:22:51.751865401Z",
+        "participants": [
+          {
+            "id": "participant-1",
+            "identityRef": "vault://participants/selfcheck-1",
+            "displayCode": "P-001"
+          }
+        ],
+        "recordings": [
+          {
+            "id": "recording-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "catalogRef": "AR-SC-001",
+            "participantIds": [
+              "participant-1"
+            ],
+            "durationSeconds": 90,
+            "languageTags": [
+              "cmn"
+            ],
+            "sensitiveTopics": [],
+            "currentRevisionId": "recording-1-r1",
+            "contentDigest": "sha256:selfcheck-original",
+            "revisions": [
+              {
+                "id": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-original",
+                "summary": "原始编目录音",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.746032633Z"
+              }
+            ]
+          }
+        ],
+        "consents": [
+          {
+            "id": "consent-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "participantId": "participant-1",
+            "recordingIds": [
+              "recording-1"
+            ],
+            "allowedPurposes": [
+              "linguistic-research"
+            ],
+            "audience": [
+              "accredited-researchers"
+            ],
+            "signedAt": "2026-08-24T09:22:51Z",
+            "expiresAt": "2027-08-25T09:22:51Z",
+            "documentDigest": "sha256:selfcheck-consent"
+          }
+        ],
+        "findings": [],
+        "evidencePackages": []
+      },
+      "createdAt": "2026-08-25T09:22:51.751865401Z"
+    },
+    "self-create-1787649771734375996": {
+      "key": "self-create-1787649771734375996",
+      "payloadHash": "b229669986885492c9e9ea70a6ae87e9fdcb77b82e074bc1697575a34662f1e5",
+      "caseId": "case_1a4adfd433752dad09002a22",
+      "caseVersion": 1,
+      "result": {
+        "id": "case_1a4adfd433752dad09002a22",
+        "collectionId": "collection-selfcheck",
+        "title": "自检口述录音开放案件",
+        "purpose": "linguistic-research",
+        "catalogerId": "cataloger-selfcheck",
+        "status": "DRAFT",
+        "version": 1,
+        "createdAt": "2026-08-25T09:22:51.73481673Z",
+        "updatedAt": "2026-08-25T09:22:51.73481673Z",
+        "participants": [],
+        "recordings": [],
+        "consents": [],
+        "findings": [],
+        "evidencePackages": []
+      },
+      "createdAt": "2026-08-25T09:22:51.73481673Z"
+    },
+    "self-finding-1787649771734375996": {
+      "key": "self-finding-1787649771734375996",
+      "payloadHash": "f2df5d2d700eeecaccc2cc4e9618f1a946cb288fad86a2b371b72601ba8bde69",
+      "caseId": "case_1a4adfd433752dad09002a22",
+      "caseVersion": 6,
+      "result": {
+        "id": "case_1a4adfd433752dad09002a22",
+        "collectionId": "collection-selfcheck",
+        "title": "自检口述录音开放案件",
+        "purpose": "linguistic-research",
+        "catalogerId": "cataloger-selfcheck",
+        "status": "CHANGES_REQUIRED",
+        "version": 6,
+        "createdAt": "2026-08-25T09:22:51.73481673Z",
+        "updatedAt": "2026-08-25T09:22:51.763052008Z",
+        "participants": [
+          {
+            "id": "participant-1",
+            "identityRef": "vault://participants/selfcheck-1",
+            "displayCode": "P-001"
+          }
+        ],
+        "recordings": [
+          {
+            "id": "recording-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "catalogRef": "AR-SC-001",
+            "participantIds": [
+              "participant-1"
+            ],
+            "durationSeconds": 90,
+            "languageTags": [
+              "cmn"
+            ],
+            "sensitiveTopics": [],
+            "currentRevisionId": "recording-1-r1",
+            "contentDigest": "sha256:selfcheck-original",
+            "revisions": [
+              {
+                "id": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-original",
+                "summary": "原始编目录音",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.746032633Z"
+              }
+            ]
+          }
+        ],
+        "consents": [
+          {
+            "id": "consent-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "participantId": "participant-1",
+            "recordingIds": [
+              "recording-1"
+            ],
+            "allowedPurposes": [
+              "linguistic-research"
+            ],
+            "audience": [
+              "accredited-researchers"
+            ],
+            "signedAt": "2026-08-24T09:22:51Z",
+            "expiresAt": "2027-08-25T09:22:51Z",
+            "documentDigest": "sha256:selfcheck-consent"
+          }
+        ],
+        "findings": [
+          {
+            "id": "finding-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "kind": "SENSITIVE_EXPOSURE",
+            "severity": "MAJOR",
+            "subjectType": "recording",
+            "subjectId": "recording-1",
+            "description": "需要对可识别地名进行脱敏",
+            "status": "OPEN"
+          }
+        ],
+        "evidencePackages": []
+      },
+      "createdAt": "2026-08-25T09:22:51.763052008Z"
+    },
+    "self-freeze-1787649771734375996": {
+      "key": "self-freeze-1787649771734375996",
+      "payloadHash": "84460d6da97344e240f3439166d0c10e4c26b9455d30fdb9d96cd3702892b8d1",
+      "caseId": "case_1a4adfd433752dad09002a22",
+      "caseVersion": 10,
+      "result": {
+        "id": "case_1a4adfd433752dad09002a22",
+        "collectionId": "collection-selfcheck",
+        "title": "自检口述录音开放案件",
+        "purpose": "linguistic-research",
+        "catalogerId": "cataloger-selfcheck",
+        "status": "FROZEN",
+        "version": 10,
+        "createdAt": "2026-08-25T09:22:51.73481673Z",
+        "updatedAt": "2026-08-25T09:22:51.785952791Z",
+        "participants": [
+          {
+            "id": "participant-1",
+            "identityRef": "vault://participants/selfcheck-1",
+            "displayCode": "P-001"
+          }
+        ],
+        "recordings": [
+          {
+            "id": "recording-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "catalogRef": "AR-SC-001",
+            "participantIds": [
+              "participant-1"
+            ],
+            "durationSeconds": 90,
+            "languageTags": [
+              "cmn"
+            ],
+            "sensitiveTopics": [],
+            "currentRevisionId": "recording-1-r2",
+            "contentDigest": "sha256:selfcheck-redacted",
+            "revisions": [
+              {
+                "id": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-original",
+                "summary": "原始编目录音",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.746032633Z"
+              },
+              {
+                "id": "recording-1-r2",
+                "parentId": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-redacted",
+                "redactionDigest": "sha256:selfcheck-redaction-map",
+                "summary": "移除可识别地名",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.768420836Z"
+              }
+            ]
+          }
+        ],
+        "consents": [
+          {
+            "id": "consent-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "participantId": "participant-1",
+            "recordingIds": [
+              "recording-1"
+            ],
+            "allowedPurposes": [
+              "linguistic-research"
+            ],
+            "audience": [
+              "accredited-researchers"
+            ],
+            "signedAt": "2026-08-24T09:22:51Z",
+            "expiresAt": "2027-08-25T09:22:51Z",
+            "documentDigest": "sha256:selfcheck-consent"
+          }
+        ],
+        "findings": [
+          {
+            "id": "finding-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "kind": "SENSITIVE_EXPOSURE",
+            "severity": "MAJOR",
+            "subjectType": "recording",
+            "subjectId": "recording-1",
+            "description": "需要对可识别地名进行脱敏",
+            "status": "CLOSED",
+            "remediationEvidence": "revision:recording-1-r2",
+            "reviewedBy": "reviewer-selfcheck",
+            "reviewedAt": "2026-08-25T09:22:51.774311931Z"
+          }
+        ],
+        "evidencePackages": [],
+        "decision": {
+          "decision": "APPROVED",
+          "actorId": "officer-selfcheck",
+          "reason": "同意范围明确且整改已复核",
+          "at": "2026-08-25T09:22:51.779998656Z"
+        },
+        "manifest": {
+          "caseId": "case_1a4adfd433752dad09002a22",
+          "caseVersion": 10,
+          "createdAt": "2026-08-25T09:22:51.785952791Z",
+          "recordings": [
+            {
+              "id": "recording-1",
+              "revisionId": "recording-1-r2",
+              "contentDigest": "sha256:selfcheck-redacted",
+              "participantIds": [
+                "participant-1"
+              ]
+            }
+          ],
+          "consents": [
+            {
+              "id": "consent-1",
+              "participantId": "participant-1",
+              "documentDigest": "sha256:selfcheck-consent",
+              "recordingIds": [
+                "recording-1"
+              ],
+              "adopted": true,
+              "adoptionStatus": "ADOPTED"
+            }
+          ],
+          "accessScopes": [
+            {
+              "recordingId": "recording-1",
+              "allowedPurposes": [
+                "linguistic-research"
+              ],
+              "audience": [
+                "accredited-researchers"
+              ],
+              "expiresAt": "2027-08-25T09:22:51Z",
+              "valid": true
+            }
+          ],
+          "decision": {
+            "decision": "APPROVED",
+            "actorId": "officer-selfcheck",
+            "reason": "同意范围明确且整改已复核",
+            "at": "2026-08-25T09:22:51.779998656Z"
+          },
+          "digest": "d137c69713f1d5ce831dd437a89b3f9d6f2762773a0f7116b25056e3336674f9"
+        }
+      },
+      "createdAt": "2026-08-25T09:22:51.785952791Z"
+    },
+    "self-issue-1787649771734375996": {
+      "key": "self-issue-1787649771734375996",
+      "payloadHash": "da8fbc91d8dbb8ce50f80cf8f9be6a5c738562b7fe40776f714791d802d5af99",
+      "caseId": "case_1a4adfd433752dad09002a22",
+      "caseVersion": 11,
+      "result": {
+        "id": "case_1a4adfd433752dad09002a22",
+        "collectionId": "collection-selfcheck",
+        "title": "自检口述录音开放案件",
+        "purpose": "linguistic-research",
+        "catalogerId": "cataloger-selfcheck",
+        "status": "RELEASED",
+        "version": 11,
+        "createdAt": "2026-08-25T09:22:51.73481673Z",
+        "updatedAt": "2026-08-25T09:22:51.792373687Z",
+        "participants": [
+          {
+            "id": "participant-1",
+            "identityRef": "vault://participants/selfcheck-1",
+            "displayCode": "P-001"
+          }
+        ],
+        "recordings": [
+          {
+            "id": "recording-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "catalogRef": "AR-SC-001",
+            "participantIds": [
+              "participant-1"
+            ],
+            "durationSeconds": 90,
+            "languageTags": [
+              "cmn"
+            ],
+            "sensitiveTopics": [],
+            "currentRevisionId": "recording-1-r2",
+            "contentDigest": "sha256:selfcheck-redacted",
+            "revisions": [
+              {
+                "id": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-original",
+                "summary": "原始编目录音",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.746032633Z"
+              },
+              {
+                "id": "recording-1-r2",
+                "parentId": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-redacted",
+                "redactionDigest": "sha256:selfcheck-redaction-map",
+                "summary": "移除可识别地名",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.768420836Z"
+              }
+            ]
+          }
+        ],
+        "consents": [
+          {
+            "id": "consent-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "participantId": "participant-1",
+            "recordingIds": [
+              "recording-1"
+            ],
+            "allowedPurposes": [
+              "linguistic-research"
+            ],
+            "audience": [
+              "accredited-researchers"
+            ],
+            "signedAt": "2026-08-24T09:22:51Z",
+            "expiresAt": "2027-08-25T09:22:51Z",
+            "documentDigest": "sha256:selfcheck-consent"
+          }
+        ],
+        "findings": [
+          {
+            "id": "finding-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "kind": "SENSITIVE_EXPOSURE",
+            "severity": "MAJOR",
+            "subjectType": "recording",
+            "subjectId": "recording-1",
+            "description": "需要对可识别地名进行脱敏",
+            "status": "CLOSED",
+            "remediationEvidence": "revision:recording-1-r2",
+            "reviewedBy": "reviewer-selfcheck",
+            "reviewedAt": "2026-08-25T09:22:51.774311931Z"
+          }
+        ],
+        "evidencePackages": [],
+        "decision": {
+          "decision": "APPROVED",
+          "actorId": "officer-selfcheck",
+          "reason": "同意范围明确且整改已复核",
+          "at": "2026-08-25T09:22:51.779998656Z"
+        },
+        "manifest": {
+          "caseId": "case_1a4adfd433752dad09002a22",
+          "caseVersion": 10,
+          "createdAt": "2026-08-25T09:22:51.785952791Z",
+          "recordings": [
+            {
+              "id": "recording-1",
+              "revisionId": "recording-1-r2",
+              "contentDigest": "sha256:selfcheck-redacted",
+              "participantIds": [
+                "participant-1"
+              ]
+            }
+          ],
+          "consents": [
+            {
+              "id": "consent-1",
+              "participantId": "participant-1",
+              "documentDigest": "sha256:selfcheck-consent",
+              "recordingIds": [
+                "recording-1"
+              ],
+              "adopted": true,
+              "adoptionStatus": "ADOPTED"
+            }
+          ],
+          "accessScopes": [
+            {
+              "recordingId": "recording-1",
+              "allowedPurposes": [
+                "linguistic-research"
+              ],
+              "audience": [
+                "accredited-researchers"
+              ],
+              "expiresAt": "2027-08-25T09:22:51Z",
+              "valid": true
+            }
+          ],
+          "decision": {
+            "decision": "APPROVED",
+            "actorId": "officer-selfcheck",
+            "reason": "同意范围明确且整改已复核",
+            "at": "2026-08-25T09:22:51.779998656Z"
+          },
+          "digest": "d137c69713f1d5ce831dd437a89b3f9d6f2762773a0f7116b25056e3336674f9"
+        },
+        "credential": {
+          "credentialNo": "OAR-0000000001",
+          "caseId": "case_1a4adfd433752dad09002a22",
+          "manifestDigest": "d137c69713f1d5ce831dd437a89b3f9d6f2762773a0f7116b25056e3336674f9",
+          "previousDigest": "",
+          "credentialDigest": "077cf7ba05f3ef71a7cc2195b1da6c5999169f4621038284cf6fac9fe6104c8b",
+          "sequence": 1,
+          "issuedBy": "officer-selfcheck",
+          "issuedAt": "2026-08-25T09:22:51.792373687Z"
+        }
+      },
+      "createdAt": "2026-08-25T09:22:51.792373687Z"
+    },
+    "self-participant-1787649771734375996": {
+      "key": "self-participant-1787649771734375996",
+      "payloadHash": "3e7577ee0109e13b3263ffbeb2a789801026f4d7749de3c7ddb85c59140b59b0",
+      "caseId": "case_1a4adfd433752dad09002a22",
+      "caseVersion": 2,
+      "result": {
+        "id": "case_1a4adfd433752dad09002a22",
+        "collectionId": "collection-selfcheck",
+        "title": "自检口述录音开放案件",
+        "purpose": "linguistic-research",
+        "catalogerId": "cataloger-selfcheck",
+        "status": "DRAFT",
+        "version": 2,
+        "createdAt": "2026-08-25T09:22:51.73481673Z",
+        "updatedAt": "2026-08-25T09:22:51.740685812Z",
+        "participants": [
+          {
+            "id": "participant-1",
+            "identityRef": "vault://participants/selfcheck-1",
+            "displayCode": "P-001"
+          }
+        ],
+        "recordings": [],
+        "consents": [],
+        "findings": [],
+        "evidencePackages": []
+      },
+      "createdAt": "2026-08-25T09:22:51.740685812Z"
+    },
+    "self-recording-1787649771734375996": {
+      "key": "self-recording-1787649771734375996",
+      "payloadHash": "bc402158326828f2c79b145db018646dcb150e3b8dadc14b807420c67bf41308",
+      "caseId": "case_1a4adfd433752dad09002a22",
+      "caseVersion": 3,
+      "result": {
+        "id": "case_1a4adfd433752dad09002a22",
+        "collectionId": "collection-selfcheck",
+        "title": "自检口述录音开放案件",
+        "purpose": "linguistic-research",
+        "catalogerId": "cataloger-selfcheck",
+        "status": "DRAFT",
+        "version": 3,
+        "createdAt": "2026-08-25T09:22:51.73481673Z",
+        "updatedAt": "2026-08-25T09:22:51.746032633Z",
+        "participants": [
+          {
+            "id": "participant-1",
+            "identityRef": "vault://participants/selfcheck-1",
+            "displayCode": "P-001"
+          }
+        ],
+        "recordings": [
+          {
+            "id": "recording-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "catalogRef": "AR-SC-001",
+            "participantIds": [
+              "participant-1"
+            ],
+            "durationSeconds": 90,
+            "languageTags": [
+              "cmn"
+            ],
+            "sensitiveTopics": [],
+            "currentRevisionId": "recording-1-r1",
+            "contentDigest": "sha256:selfcheck-original",
+            "revisions": [
+              {
+                "id": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-original",
+                "summary": "原始编目录音",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.746032633Z"
+              }
+            ]
+          }
+        ],
+        "consents": [],
+        "findings": [],
+        "evidencePackages": []
+      },
+      "createdAt": "2026-08-25T09:22:51.746032633Z"
+    },
+    "self-review-1787649771734375996": {
+      "key": "self-review-1787649771734375996",
+      "payloadHash": "1647e211e6dbccbed1c6704c192811b7e189ea29f82d7feb2a6029572aaac49b",
+      "caseId": "case_1a4adfd433752dad09002a22",
+      "caseVersion": 8,
+      "result": {
+        "id": "case_1a4adfd433752dad09002a22",
+        "collectionId": "collection-selfcheck",
+        "title": "自检口述录音开放案件",
+        "purpose": "linguistic-research",
+        "catalogerId": "cataloger-selfcheck",
+        "status": "CHANGES_REQUIRED",
+        "version": 8,
+        "createdAt": "2026-08-25T09:22:51.73481673Z",
+        "updatedAt": "2026-08-25T09:22:51.774311931Z",
+        "participants": [
+          {
+            "id": "participant-1",
+            "identityRef": "vault://participants/selfcheck-1",
+            "displayCode": "P-001"
+          }
+        ],
+        "recordings": [
+          {
+            "id": "recording-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "catalogRef": "AR-SC-001",
+            "participantIds": [
+              "participant-1"
+            ],
+            "durationSeconds": 90,
+            "languageTags": [
+              "cmn"
+            ],
+            "sensitiveTopics": [],
+            "currentRevisionId": "recording-1-r2",
+            "contentDigest": "sha256:selfcheck-redacted",
+            "revisions": [
+              {
+                "id": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-original",
+                "summary": "原始编目录音",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.746032633Z"
+              },
+              {
+                "id": "recording-1-r2",
+                "parentId": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-redacted",
+                "redactionDigest": "sha256:selfcheck-redaction-map",
+                "summary": "移除可识别地名",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.768420836Z"
+              }
+            ]
+          }
+        ],
+        "consents": [
+          {
+            "id": "consent-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "participantId": "participant-1",
+            "recordingIds": [
+              "recording-1"
+            ],
+            "allowedPurposes": [
+              "linguistic-research"
+            ],
+            "audience": [
+              "accredited-researchers"
+            ],
+            "signedAt": "2026-08-24T09:22:51Z",
+            "expiresAt": "2027-08-25T09:22:51Z",
+            "documentDigest": "sha256:selfcheck-consent"
+          }
+        ],
+        "findings": [
+          {
+            "id": "finding-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "kind": "SENSITIVE_EXPOSURE",
+            "severity": "MAJOR",
+            "subjectType": "recording",
+            "subjectId": "recording-1",
+            "description": "需要对可识别地名进行脱敏",
+            "status": "CLOSED",
+            "remediationEvidence": "revision:recording-1-r2",
+            "reviewedBy": "reviewer-selfcheck",
+            "reviewedAt": "2026-08-25T09:22:51.774311931Z"
+          }
+        ],
+        "evidencePackages": []
+      },
+      "createdAt": "2026-08-25T09:22:51.774311931Z"
+    },
+    "self-revision-1787649771734375996": {
+      "key": "self-revision-1787649771734375996",
+      "payloadHash": "de36828df4658bab267bea77c7a715c8c53f7680caf4a47b4a627b35a9ed1a7b",
+      "caseId": "case_1a4adfd433752dad09002a22",
+      "caseVersion": 7,
+      "result": {
+        "id": "case_1a4adfd433752dad09002a22",
+        "collectionId": "collection-selfcheck",
+        "title": "自检口述录音开放案件",
+        "purpose": "linguistic-research",
+        "catalogerId": "cataloger-selfcheck",
+        "status": "CHANGES_REQUIRED",
+        "version": 7,
+        "createdAt": "2026-08-25T09:22:51.73481673Z",
+        "updatedAt": "2026-08-25T09:22:51.768420836Z",
+        "participants": [
+          {
+            "id": "participant-1",
+            "identityRef": "vault://participants/selfcheck-1",
+            "displayCode": "P-001"
+          }
+        ],
+        "recordings": [
+          {
+            "id": "recording-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "catalogRef": "AR-SC-001",
+            "participantIds": [
+              "participant-1"
+            ],
+            "durationSeconds": 90,
+            "languageTags": [
+              "cmn"
+            ],
+            "sensitiveTopics": [],
+            "currentRevisionId": "recording-1-r2",
+            "contentDigest": "sha256:selfcheck-redacted",
+            "revisions": [
+              {
+                "id": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-original",
+                "summary": "原始编目录音",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.746032633Z"
+              },
+              {
+                "id": "recording-1-r2",
+                "parentId": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-redacted",
+                "redactionDigest": "sha256:selfcheck-redaction-map",
+                "summary": "移除可识别地名",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.768420836Z"
+              }
+            ]
+          }
+        ],
+        "consents": [
+          {
+            "id": "consent-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "participantId": "participant-1",
+            "recordingIds": [
+              "recording-1"
+            ],
+            "allowedPurposes": [
+              "linguistic-research"
+            ],
+            "audience": [
+              "accredited-researchers"
+            ],
+            "signedAt": "2026-08-24T09:22:51Z",
+            "expiresAt": "2027-08-25T09:22:51Z",
+            "documentDigest": "sha256:selfcheck-consent"
+          }
+        ],
+        "findings": [
+          {
+            "id": "finding-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "kind": "SENSITIVE_EXPOSURE",
+            "severity": "MAJOR",
+            "subjectType": "recording",
+            "subjectId": "recording-1",
+            "description": "需要对可识别地名进行脱敏",
+            "status": "OPEN",
+            "remediationEvidence": "revision:recording-1-r2"
+          }
+        ],
+        "evidencePackages": []
+      },
+      "createdAt": "2026-08-25T09:22:51.768420836Z"
+    },
+    "self-submit-1787649771734375996": {
+      "key": "self-submit-1787649771734375996",
+      "payloadHash": "fce17cd834124629d2924524ce81f925bcb0e0f8aec136e1e4e3fbc66452b2e4",
+      "caseId": "case_1a4adfd433752dad09002a22",
+      "caseVersion": 5,
+      "result": {
+        "id": "case_1a4adfd433752dad09002a22",
+        "collectionId": "collection-selfcheck",
+        "title": "自检口述录音开放案件",
+        "purpose": "linguistic-research",
+        "catalogerId": "cataloger-selfcheck",
+        "status": "IN_REVIEW",
+        "version": 5,
+        "createdAt": "2026-08-25T09:22:51.73481673Z",
+        "updatedAt": "2026-08-25T09:22:51.757442036Z",
+        "participants": [
+          {
+            "id": "participant-1",
+            "identityRef": "vault://participants/selfcheck-1",
+            "displayCode": "P-001"
+          }
+        ],
+        "recordings": [
+          {
+            "id": "recording-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "catalogRef": "AR-SC-001",
+            "participantIds": [
+              "participant-1"
+            ],
+            "durationSeconds": 90,
+            "languageTags": [
+              "cmn"
+            ],
+            "sensitiveTopics": [],
+            "currentRevisionId": "recording-1-r1",
+            "contentDigest": "sha256:selfcheck-original",
+            "revisions": [
+              {
+                "id": "recording-1-r1",
+                "contentDigest": "sha256:selfcheck-original",
+                "summary": "原始编目录音",
+                "createdBy": "cataloger-selfcheck",
+                "createdAt": "2026-08-25T09:22:51.746032633Z"
+              }
+            ]
+          }
+        ],
+        "consents": [
+          {
+            "id": "consent-1",
+            "caseId": "case_1a4adfd433752dad09002a22",
+            "participantId": "participant-1",
+            "recordingIds": [
+              "recording-1"
+            ],
+            "allowedPurposes": [
+              "linguistic-research"
+            ],
+            "audience": [
+              "accredited-researchers"
+            ],
+            "signedAt": "2026-08-24T09:22:51Z",
+            "expiresAt": "2027-08-25T09:22:51Z",
+            "documentDigest": "sha256:selfcheck-consent"
+          }
+        ],
+        "findings": [],
+        "evidencePackages": []
+      },
+      "createdAt": "2026-08-25T09:22:51.757442036Z"
+    }
+  }
+}

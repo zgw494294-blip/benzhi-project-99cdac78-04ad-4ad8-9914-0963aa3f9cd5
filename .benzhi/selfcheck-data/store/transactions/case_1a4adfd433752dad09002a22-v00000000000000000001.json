@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "kind": "transaction",
+  "digest": "f0a8ea8cf963cc2bebf3bd7cb93235fdc5fe60246c94d8c72a3b75b07081117b",
+  "data": {
+    "case": {
+      "id": "case_1a4adfd433752dad09002a22",
+      "collectionId": "collection-selfcheck",
+      "title": "自检口述录音开放案件",
+      "purpose": "linguistic-research",
+      "catalogerId": "cataloger-selfcheck",
+      "status": "DRAFT",
+      "version": 1,
+      "createdAt": "2026-08-25T09:22:51.73481673Z",
+      "updatedAt": "2026-08-25T09:22:51.73481673Z",
+      "participants": [],
+      "recordings": [],
+      "consents": [],
+      "findings": [],
+      "evidencePackages": []
+    },
+    "expectedVersion": 0,
+    "idempotency": {
+      "key": "self-create-1787649771734375996",
+      "payloadHash": "b229669986885492c9e9ea70a6ae87e9fdcb77b82e074bc1697575a34662f1e5",
+      "caseId": "case_1a4adfd433752dad09002a22",
+      "caseVersion": 1,
+      "result": {
+        "id": "case_1a4adfd433752dad09002a22",
+        "collectionId": "collection-selfcheck",
+        "title": "自检口述录音开放案件",
+        "purpose": "linguistic-research",
+        "catalogerId": "cataloger-selfcheck",
+        "status": "DRAFT",
+        "version": 1,
+        "createdAt": "2026-08-25T09:22:51.73481673Z",
+        "updatedAt": "2026-08-25T09:22:51.73481673Z",
+        "participants": [],
+        "recordings": [],
+        "consents": [],
+        "findings": [],
+        "evidencePackages": []
+      },
+      "createdAt": "2026-08-25T09:22:51.73481673Z"
+    },
+    "committedAt": "2026-08-25T09:22:51.735162346Z"
+  }
+}
