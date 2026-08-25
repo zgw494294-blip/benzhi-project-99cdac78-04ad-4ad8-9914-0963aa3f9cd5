@@ -296,7 +296,7 @@ func (s *Service) Timeline(ctx context.Context, id string) ([]AuditEvent, error)
 	if _, err := s.repo.Get(ctx, id); err != nil {
 		return nil, err
 	}
-	return s.audit.Timeline(ctx, id)
+	return s.audit.Timeline(context.WithoutCancel(ctx), id)
 }
 func (s *Service) Credential(ctx context.Context, no string) (domain.ReleaseCredential, error) {
 	return s.audit.Credential(ctx, no)
@@ -307,12 +307,12 @@ func (s *Service) VerifyCredential(ctx context.Context, no string) (Verification
 	if err != nil {
 		return Verification{}, err
 	}
-	c, err := s.repo.GetByCredential(ctx, no)
+	c, err := s.repo.GetByCredential(context.WithoutCancel(ctx), no)
 	if err != nil {
 		return Verification{}, err
 	}
 	manifestValid, problems := c.Verify()
-	chainValid, chainProblems, err := s.audit.Verify(ctx)
+	chainValid, chainProblems, err := s.audit.Verify(context.WithoutCancel(ctx))
 	if err != nil {
 		return Verification{}, err
 	}

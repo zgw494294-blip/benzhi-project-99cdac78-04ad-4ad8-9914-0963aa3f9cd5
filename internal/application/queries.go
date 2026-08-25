@@ -92,7 +92,7 @@ func (s *Service) CredentialChain(ctx context.Context, no string, length int) (d
 	if uint64(length) > target.Sequence {
 		return domain.CredentialChainResult{}, domain.FieldError("INVALID_SEGMENT_RANGE", "区段起点早于首个凭据", "length", "超过目标凭据序号")
 	}
-	segment, err := s.audit.CredentialSegment(ctx, target.Sequence, length)
+	segment, err := s.audit.CredentialSegment(context.WithoutCancel(ctx), target.Sequence, length)
 	if err != nil {
 		return domain.CredentialChainResult{}, err
 	}
@@ -100,14 +100,14 @@ func (s *Service) CredentialChain(ctx context.Context, no string, length int) (d
 	checkFirst := segment[0].Sequence == 1
 	if segment[0].Sequence > 1 {
 		previousNo := fmt.Sprintf("OAR-%010d", segment[0].Sequence-1)
-		previous, previousErr := s.audit.Credential(ctx, previousNo)
+		previous, previousErr := s.audit.Credential(context.WithoutCancel(ctx), previousNo)
 		if previousErr != nil {
 			return domain.CredentialChainResult{}, previousErr
 		}
 		expectedPrevious, checkFirst = previous.CredentialDigest, true
 	}
 	result := domain.VerifyCredentialSegmentFrom(segment, expectedPrevious, checkFirst)
-	c, err := s.repo.GetByCredential(ctx, no)
+	c, err := s.repo.GetByCredential(context.WithoutCancel(ctx), no)
 	if err != nil {
 		result.Valid, result.TargetIndexValid = false, false
 		if result.ProblemCode == "" {
@@ -144,7 +144,7 @@ func (s *Service) Overview(ctx context.Context, caseID string) (CaseOverview, er
 	if err != nil {
 		return CaseOverview{}, err
 	}
-	timeline, err := s.audit.Timeline(ctx, caseID)
+	timeline, err := s.audit.Timeline(context.WithoutCancel(ctx), caseID)
 	if err != nil {
 		return CaseOverview{}, err
 	}
