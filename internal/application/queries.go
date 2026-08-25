@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"sync"
 	"time"
 
 	"oral-archive-release/internal/domain"
@@ -140,11 +141,22 @@ func (s *Service) CredentialChain(ctx context.Context, no string, length int) (d
 }
 
 func (s *Service) Overview(ctx context.Context, caseID string) (CaseOverview, error) {
-	c, err := s.repo.Get(ctx, caseID)
-	if err != nil {
-		return CaseOverview{}, err
-	}
-	timeline, err := s.audit.Timeline(ctx, caseID)
+	var (
+		c        *domain.ReleaseCase
+		timeline []AuditEvent
+		err      error
+		loads    sync.WaitGroup
+	)
+	loads.Add(2)
+	go func() {
+		defer loads.Done()
+		c, err = s.repo.Get(ctx, caseID)
+	}()
+	go func() {
+		defer loads.Done()
+		timeline, err = s.audit.Timeline(ctx, caseID)
+	}()
+	loads.Wait()
 	if err != nil {
 		return CaseOverview{}, err
 	}
