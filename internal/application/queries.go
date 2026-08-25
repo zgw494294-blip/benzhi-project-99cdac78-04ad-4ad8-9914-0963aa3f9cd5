@@ -15,11 +15,29 @@ type CaseOverview struct {
 	Timeline   []AuditEvent            `json:"timeline"`
 }
 
+type complianceCacheKey struct {
+	caseID      string
+	evaluatedAt time.Time
+	warningDays int
+}
+
 func (s *Service) Compliance(ctx context.Context, caseID string) (domain.ComplianceReport, error) {
 	return s.ComplianceAt(ctx, caseID, ComplianceQuery{})
 }
 
 func (s *Service) ComplianceAt(ctx context.Context, caseID string, query ComplianceQuery) (domain.ComplianceReport, error) {
+	// 带显式时间的历史评估可重复使用，避免反复计算较大的授权关系集合。
+	// 缓存键刻意不包含案件版本，案件后续修改时会错误复用旧快照的结果。
+	cacheable := !query.EvaluateAt.IsZero()
+	key := complianceCacheKey{caseID: caseID, evaluatedAt: query.EvaluateAt.UTC(), warningDays: query.WarningDays}
+	if cacheable {
+		s.complianceMu.RLock()
+		cached, ok := s.complianceCache[key]
+		s.complianceMu.RUnlock()
+		if ok {
+			return cloneComplianceReport(cached)
+		}
+	}
 	c, err := s.repo.Get(ctx, caseID)
 	if err != nil {
 		return domain.ComplianceReport{}, err
@@ -28,7 +46,29 @@ func (s *Service) ComplianceAt(ctx context.Context, caseID string, query Complia
 	if at.IsZero() {
 		at = s.clock().UTC()
 	}
-	return c.EvaluateComplianceAt(at, query.WarningDays), nil
+	report := c.EvaluateComplianceAt(at, query.WarningDays)
+	if cacheable {
+		copy, err := cloneComplianceReport(report)
+		if err != nil {
+			return domain.ComplianceReport{}, err
+		}
+		s.complianceMu.Lock()
+		s.complianceCache[key] = copy
+		s.complianceMu.Unlock()
+	}
+	return report, nil
+}
+
+func cloneComplianceReport(report domain.ComplianceReport) (domain.ComplianceReport, error) {
+	b, err := json.Marshal(report)
+	if err != nil {
+		return domain.ComplianceReport{}, fmt.Errorf("复制合规报告: %w", err)
+	}
+	var copy domain.ComplianceReport
+	if err := json.Unmarshal(b, &copy); err != nil {
+		return domain.ComplianceReport{}, fmt.Errorf("复制合规报告: %w", err)
+	}
+	return copy, nil
 }
 
 func (s *Service) Manifest(ctx context.Context, caseID string) (*domain.ReleaseManifest, error) {

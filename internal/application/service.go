@@ -16,15 +16,23 @@ import (
 )
 
 type Service struct {
-	repo  Repository
-	audit AuditPort
-	clock func() time.Time
-	ids   func() string
-	mu    sync.Mutex
+	repo            Repository
+	audit           AuditPort
+	clock           func() time.Time
+	ids             func() string
+	mu              sync.Mutex
+	complianceMu    sync.RWMutex
+	complianceCache map[complianceCacheKey]domain.ComplianceReport
 }
 
 func NewService(repo Repository, audit AuditPort) *Service {
-	return &Service{repo: repo, audit: audit, clock: time.Now, ids: randomID}
+	return &Service{
+		repo:            repo,
+		audit:           audit,
+		clock:           time.Now,
+		ids:             randomID,
+		complianceCache: map[complianceCacheKey]domain.ComplianceReport{},
+	}
 }
 
 func (s *Service) CreateCase(ctx context.Context, cmd CreateCase) (*domain.ReleaseCase, error) {
