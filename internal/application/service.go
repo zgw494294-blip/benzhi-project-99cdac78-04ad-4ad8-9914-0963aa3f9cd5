@@ -262,9 +262,6 @@ func (s *Service) Issue(ctx context.Context, caseID string, cmd IssueCredential)
 	if err != nil {
 		return nil, err
 	}
-	if c.Version != cmd.ExpectedVersion {
-		return nil, staleVersion(c.Version)
-	}
 	if c.Status != domain.StatusFrozen || c.Manifest == nil {
 		return nil, domain.NewError("INVALID_STATE", "只有 FROZEN 案件可以签发凭据")
 	}
@@ -272,6 +269,9 @@ func (s *Service) Issue(ctx context.Context, caseID string, cmd IssueCredential)
 	credential, err := s.audit.IssueCredential(ctx, c.ID, c.Manifest.Digest, cmd.ActorID, now)
 	if err != nil {
 		return nil, err
+	}
+	if c.Version != cmd.ExpectedVersion {
+		return nil, staleVersion(c.Version)
 	}
 	if err := c.AttachCredential(credential, now); err != nil {
 		return nil, err
