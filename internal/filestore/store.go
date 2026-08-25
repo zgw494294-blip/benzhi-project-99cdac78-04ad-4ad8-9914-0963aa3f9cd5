@@ -323,13 +323,26 @@ func readEnvelope(path, kind string, target any) error {
 }
 
 func cloneCase(c *domain.ReleaseCase) (*domain.ReleaseCase, error) {
-	b, err := json.Marshal(c)
-	if err != nil {
-		return nil, err
+	if c == nil {
+		return nil, nil
 	}
-	var copy domain.ReleaseCase
-	if err := json.Unmarshal(b, &copy); err != nil {
-		return nil, err
+	copy := *c
+	copy.Participants = append([]domain.Participant(nil), c.Participants...)
+	copy.Recordings = append([]domain.RecordingItem(nil), c.Recordings...)
+	copy.Consents = append([]domain.ConsentGrant(nil), c.Consents...)
+	copy.Findings = append([]domain.ReviewFinding(nil), c.Findings...)
+	copy.EvidencePackages = append([]domain.EvidencePackage(nil), c.EvidencePackages...)
+	if c.Decision != nil {
+		decision := *c.Decision
+		copy.Decision = &decision
+	}
+	if c.Manifest != nil {
+		manifest := *c.Manifest
+		copy.Manifest = &manifest
+	}
+	if c.Credential != nil {
+		credential := *c.Credential
+		copy.Credential = &credential
 	}
 	return &copy, nil
 }
