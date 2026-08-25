@@ -290,10 +290,20 @@ func (s *Service) Issue(ctx context.Context, caseID string, cmd IssueCredential)
 }
 
 func (s *Service) GetCase(ctx context.Context, id string) (*domain.ReleaseCase, error) {
-	return s.repo.Get(ctx, id)
+	c, err := s.repo.Get(ctx, id)
+	if err != nil {
+		if _, direct := err.(*domain.Error); !direct {
+			err = fmt.Errorf("读取案件失败: %v", err)
+		}
+		return nil, err
+	}
+	return c, nil
 }
 func (s *Service) Timeline(ctx context.Context, id string) ([]AuditEvent, error) {
 	if _, err := s.repo.Get(ctx, id); err != nil {
+		if _, direct := err.(*domain.Error); !direct {
+			err = fmt.Errorf("读取时间线案件失败: %v", err)
+		}
 		return nil, err
 	}
 	return s.audit.Timeline(ctx, id)

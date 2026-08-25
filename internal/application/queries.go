@@ -22,6 +22,9 @@ func (s *Service) Compliance(ctx context.Context, caseID string) (domain.Complia
 func (s *Service) ComplianceAt(ctx context.Context, caseID string, query ComplianceQuery) (domain.ComplianceReport, error) {
 	c, err := s.repo.Get(ctx, caseID)
 	if err != nil {
+		if _, direct := err.(*domain.Error); !direct {
+			err = fmt.Errorf("读取合规案件失败: %v", err)
+		}
 		return domain.ComplianceReport{}, err
 	}
 	at := query.EvaluateAt
@@ -34,6 +37,9 @@ func (s *Service) ComplianceAt(ctx context.Context, caseID string, query Complia
 func (s *Service) Manifest(ctx context.Context, caseID string) (*domain.ReleaseManifest, error) {
 	c, err := s.repo.Get(ctx, caseID)
 	if err != nil {
+		if _, direct := err.(*domain.Error); !direct {
+			err = fmt.Errorf("读取冻结清单案件失败: %v", err)
+		}
 		return nil, err
 	}
 	if c.Manifest == nil {
@@ -60,6 +66,9 @@ func (s *Service) Manifest(ctx context.Context, caseID string) (*domain.ReleaseM
 func (s *Service) ManifestTrace(ctx context.Context, caseID, recordingID string) (domain.ManifestTrace, error) {
 	c, err := s.repo.Get(ctx, caseID)
 	if err != nil {
+		if _, direct := err.(*domain.Error); !direct {
+			err = fmt.Errorf("读取清单追溯案件失败: %v", err)
+		}
 		return domain.ManifestTrace{}, err
 	}
 	if c.Status != domain.StatusFrozen && c.Status != domain.StatusReleased || c.Manifest == nil {
@@ -71,6 +80,9 @@ func (s *Service) ManifestTrace(ctx context.Context, caseID, recordingID string)
 func (s *Service) Readiness(ctx context.Context, caseID string, at time.Time) (domain.ApprovalReadiness, error) {
 	c, err := s.repo.Get(ctx, caseID)
 	if err != nil {
+		if _, direct := err.(*domain.Error); !direct {
+			err = fmt.Errorf("读取批准就绪案件失败: %v", err)
+		}
 		return domain.ApprovalReadiness{}, err
 	}
 	if at.IsZero() {
@@ -142,6 +154,9 @@ func (s *Service) CredentialChain(ctx context.Context, no string, length int) (d
 func (s *Service) Overview(ctx context.Context, caseID string) (CaseOverview, error) {
 	c, err := s.repo.Get(ctx, caseID)
 	if err != nil {
+		if _, direct := err.(*domain.Error); !direct {
+			err = fmt.Errorf("读取案件概览失败: %v", err)
+		}
 		return CaseOverview{}, err
 	}
 	timeline, err := s.audit.Timeline(ctx, caseID)
