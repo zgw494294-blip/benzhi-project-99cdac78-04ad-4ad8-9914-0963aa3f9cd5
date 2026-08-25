@@ -133,9 +133,15 @@ func (s *Store) Save(ctx context.Context, c *domain.ReleaseCase, expectedVersion
 	if err := writeEnvelopeAtomic(txnPath, "transaction", txn); err != nil {
 		return fmt.Errorf("写入事务记录: %w", err)
 	}
+	if err := ctx.Err(); err != nil {
+		return err
+	}
 	casePath := filepath.Join(s.dir, "cases", safeName(c.ID)+".json")
 	if err := writeEnvelopeAtomic(casePath, "release-case", copyCase); err != nil {
 		return fmt.Errorf("写入案件快照: %w", err)
+	}
+	if err := ctx.Err(); err != nil {
+		return err
 	}
 	newIndex := make(map[string]application.IdempotencyRecord, len(s.idempotency)+1)
 	for k, value := range s.idempotency {
@@ -146,6 +152,9 @@ func (s *Store) Save(ctx context.Context, c *domain.ReleaseCase, expectedVersion
 	}
 	if err := writeEnvelopeAtomic(filepath.Join(s.dir, "idempotency.json"), "idempotency-index", newIndex); err != nil {
 		return fmt.Errorf("写入幂等索引: %w", err)
+	}
+	if err := ctx.Err(); err != nil {
+		return err
 	}
 	s.cases[c.ID], s.idempotency = copyCase, newIndex
 	return nil
