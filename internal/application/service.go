@@ -355,11 +355,24 @@ func (s *Service) mutateWithDetails(ctx context.Context, caseID string, meta Met
 	if err != nil {
 		return nil, err
 	}
-	if err := s.repo.Save(ctx, c, meta.ExpectedVersion, record); err != nil {
-		return nil, err
+	var persistErr error
+	var auditErr error
+	var writes sync.WaitGroup
+	writes.Add(2)
+	go func() {
+		defer writes.Done()
+		persistErr = s.repo.Save(ctx, c, meta.ExpectedVersion, record)
+	}()
+	go func() {
+		defer writes.Done()
+		auditErr = s.audit.Append(ctx, s.event(c, meta.ActorID, meta.ActorRole, action, details(), now))
+	}()
+	writes.Wait()
+	if persistErr != nil {
+		return nil, persistErr
 	}
-	if err := s.audit.Append(ctx, s.event(c, meta.ActorID, meta.ActorRole, action, details(), now)); err != nil {
-		return nil, err
+	if auditErr != nil {
+		return nil, auditErr
 	}
 	return c, nil
 }
